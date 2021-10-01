@@ -2,9 +2,9 @@
 
 namespace SalesWebMvc.Migrations
 {
-    public partial class DepartmentForeingKey : Migration
+    public partial class DepartmentForeingKey:Migration
     {
-        protected override void Up(MigrationBuilder migrationBuilder)
+        protected override void Up (MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
                 name: "FK_Seller_Department_DepartmentId",
@@ -26,7 +26,7 @@ namespace SalesWebMvc.Migrations
                 onDelete: ReferentialAction.Cascade);
         }
 
-        protected override void Down(MigrationBuilder migrationBuilder)
+        protected override void Down (MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
                 name: "FK_Seller_Department_DepartmentId",

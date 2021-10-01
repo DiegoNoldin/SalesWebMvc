@@ -1,26 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using SalesWebMvc.Models;
 using SalesWebMvc.Models.Enums;
-using SalesWebMvc.Models;
+using System;
+using System.Linq;
 
 namespace SalesWebMvc.Data
 {
     public class SeedingService
     {
-        private SalesWebMvcContext _context;
+        private readonly SalesWebMvcContext _context;
 
 
-        public SeedingService(SalesWebMvcContext context)
+        public SeedingService (SalesWebMvcContext context)
         {
             _context=context;
         }
 
         public void Seed ()
         {
-            if(_context.Department.Any() ||
-               _context.Seller.Any() ||
+            if (_context.Department.Any()||
+               _context.Seller.Any()||
                _context.SalesRecords.Any())
             {
                 return; //DB has been seeded

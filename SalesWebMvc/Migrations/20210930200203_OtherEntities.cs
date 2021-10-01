@@ -1,19 +1,19 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
+using System;
 
 namespace SalesWebMvc.Migrations
 {
-    public partial class OtherEntities : Migration
+    public partial class OtherEntities:Migration
     {
-        protected override void Up(MigrationBuilder migrationBuilder)
+        protected override void Up (MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
                 name: "Seller",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                        .Annotation("MySql:ValueGenerationStrategy",MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
                     birthDate = table.Column<DateTime>(nullable: false),
@@ -22,7 +22,7 @@ namespace SalesWebMvc.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Seller", x => x.Id);
+                    table.PrimaryKey("PK_Seller",x => x.Id);
                     table.ForeignKey(
                         name: "FK_Seller_Department_DepartmentId",
                         column: x => x.DepartmentId,
@@ -36,7 +36,7 @@ namespace SalesWebMvc.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                        .Annotation("MySql:ValueGenerationStrategy",MySqlValueGenerationStrategy.IdentityColumn),
                     Date = table.Column<DateTime>(nullable: false),
                     Amount = table.Column<double>(nullable: false),
                     Status = table.Column<int>(nullable: false),
@@ -44,7 +44,7 @@ namespace SalesWebMvc.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SalesRecords", x => x.Id);
+                    table.PrimaryKey("PK_SalesRecords",x => x.Id);
                     table.ForeignKey(
                         name: "FK_SalesRecords_Seller_SellerId",
                         column: x => x.SellerId,
@@ -64,7 +64,7 @@ namespace SalesWebMvc.Migrations
                 column: "DepartmentId");
         }
 
-        protected override void Down(MigrationBuilder migrationBuilder)
+        protected override void Down (MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "SalesRecords");
